@@ -1,0 +1,183 @@
+<!-- <div class="container-fluid">
+  <div class="row justify-content-center">
+    <div
+      class="
+        col-11 col-sm-10 col-md-10 col-lg-6 col-xl-5
+        text-center
+        p-0
+        mt-3
+        mb-2
+      "
+    >
+      <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+        <h2 id="heading">Notification Schedule</h2>
+        <ul id="progressbar" *ngFor="let company of companysData">
+          <li
+            class="active"
+            id="personal"
+            *ngFor="let notifyDates of company.notifications; let i = index"
+          >
+            <strong>{{ notifyDates }} </strong>
+            <p class="display-days">
+              {{ calculateDiff(notifyDates, company.companyId) }}
+              <span *ngIf="diffDays != 0">days</span>
+            </p>
+          </li>
+        </ul>
+        <div class="progress">
+          <div
+            class="progress-bar progress-bar-striped progress-bar-animated"
+            role="progressbar"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
+        </div>
+        <br />
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- <hello name="{{ name }}"></hello>
+<div *ngFor="let company of companysData">
+  <div class="list-group-item">
+    <div class="list-group-item">
+      {{ company.companyName }}
+    </div>
+    <span>
+      Days to {{ company.companyName }} Note : {{ totalNumberOfDays }} days
+    </span>
+  </div>
+  <div *ngFor="let notifyDates of company.notifications; let i = index">
+    <span> {{ notifyDates }} </span>
+    <span>{{ calculateDiff(notifyDates, company.companyId) }} </span>
+    <span *ngIf="diffDays != 0">days</span>
+  </div>
+</div> -->
+
+<div class="container-fluid">
+  <br /><br />
+  <div class="notification-container" *ngFor="let company of companysData">
+    <div
+      class="notification"
+      [ngClass]="notification_status"
+      *ngFor="
+        let notifyDates of company.notifications;
+        let first = first;
+        let last = last;
+        let i = index
+      "
+    >
+      <div class="icon-holder"></div>
+      <p *ngIf="first">Introduction</p>
+      <p *ngIf="!first">Notification</p>
+      <p>{{ notifyDates }}</p>
+      <span class="difference"
+        >{{ calculateDiff(notifyDates, company.companyId)
+        }}<span *ngIf="diffDays != 0">d.</span></span
+      >
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <br /><br />
+  <div class="notification-container">
+    <div class="notification completed">
+      <div class="icon-holder"></div>
+      <p>Introduction</p>
+      <p>13.08.2021</p>
+      <span class="difference">10d.</span>
+    </div>
+    <div class="notification completed">
+      <div class="icon-holder"></div>
+      <p>Introduction</p>
+      <p>13.08.2021</p>
+      <span class="difference">10d.</span>
+    </div>
+    <div class="notification completed">
+      <div class="icon-holder"></div>
+      <p>Introduction</p>
+      <p>13.08.2021</p>
+      <span class="difference">10d.</span>
+    </div>
+    <div class="notification in-progress">
+      <div class="icon-holder"></div>
+      <p>Introduction</p>
+      <p>13.08.2021</p>
+      <span class="difference">10d.</span>
+    </div>
+    <div class="notification in-progress">
+      <div class="icon-holder"></div>
+      <p>Introduction</p>
+      <p>13.08.2021</p>
+      <span class="difference">10d.</span>
+    </div>
+    <div class="notification in-progress">
+      <div class="icon-holder"></div>
+      <p>Introduction</p>
+      <p>13.08.2021</p>
+      <span class="difference">10d.</span>
+    </div>
+    <div class="notification in-progress">
+      <div class="icon-holder"></div>
+      <p>Introduction</p>
+      <p>13.08.2021</p>
+      <span class="difference">10d.</span>
+    </div>
+    <div class="notification in-progress">
+      <div class="icon-holder"></div>
+      <p>Introduction</p>
+      <p>13.08.2021</p>
+    </div>
+  </div>
+
+  <!-- <div class="row justify-content-center">
+    <div
+      class="
+        col-11 col-sm-10 col-md-10 col-lg-6 col-xl-5
+        text-center
+        p-0
+        mt-3
+        mb-2
+      "
+    >
+      <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+        <h2 id="heading">Notification Schedular</h2>
+        <form id="msform">
+          <div *ngFor="let company of companysData">
+            <p>{{ company.companyName }}</p>
+            <ul id="progressbar">
+              <i class="bi bi-calendar-check"></i>
+              <li
+                class="active account"
+                [ngClass]="{ first: first, last: last }"
+                *ngFor="
+                  let notifyDates of company.notifications;
+                  let first = first;
+                  let last = last;
+                  let i = index
+                "
+              >
+                <div class="days">
+                  {{ calculateDiff(notifyDates, company.companyId) }}
+                  <span *ngIf="diffDays != 0">days</span>
+                </div>
+                <strong>{{ notifyDates }}</strong>
+              </li>
+            </ul>
+          </div>
+          <div class="progress">
+            <div
+              class="progress-bar progress-bar-striped progress-bar-animated"
+              role="progressbar"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+          </div>
+          <br />
+        </form>
+      </div>
+    </div>
+  </div> -->
+</div>
